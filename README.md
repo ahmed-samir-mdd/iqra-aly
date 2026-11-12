@@ -66,29 +66,39 @@ python -m http.server 8080
 
 ## النشر
 
-الموقع جاهز للاستضافة على أي خدمة ملفات ثابتة:
+الموقع منشور على **Cloudflare Workers** (ملفات ثابتة) ومرتبط بمستودع GitHub:
 
-- **GitHub Pages**: ارفع محتويات المجلد إلى الفرع `main` وفعّل Pages.
-- **Netlify / Cloudflare Pages / Vercel**: اسحب المجلد أو اربطه بالمستودع، دون أمر بناء.
-- **أي استضافة عادية**: ارفع الملفات إلى `public_html` أو ما يعادلها.
+- الرابط: <https://iqra-aly.asm-mdd.workers.dev>
+- المستودع: <https://github.com/ahmed-samir-mdd/iqra-aly>
 
-قبل النشر اضبط النطاق النهائي (انظر القسم التالي)، وبعد النشر:
+كل دفعة إلى الفرع `main` تُطلق نشرًا تلقائيًا، فلا حاجة إلى رفع الملفات يدويًا:
+
+```powershell
+git add -A
+git commit -m "وصف التعديل"
+git push
+```
+
+إعدادات النشر على Cloudflare: بلا أمر بناء (build command فارغ)، ومجلد الإخراج هو جذر المستودع. وCloudflare يقدّم ملف APK بنوع `application/vnd.android.package-archive` تلقائيًا.
+
+الموقع يعمل أيضًا على أي استضافة ملفات ثابتة أخرى (GitHub Pages، Netlify، Vercel) دون تعديل، لأن كل المسارات نسبية.
+
+بعد أي تغيير في النطاق:
 
 1. أضف الموقع إلى Google Search Console وأرسل `sitemap.xml`.
-2. تأكد من أن ملف APK يُقدَّم بنوع `application/vnd.android.package-archive` (معظم خدمات الاستضافة تفعل ذلك تلقائيًا).
-3. تحقّق من معاينة المشاركة عبر أي أداة Open Graph بعد ضبط النطاق.
+2. تحقّق من معاينة المشاركة عبر أي أداة Open Graph.
 
 ---
 
 ## الدومين والـSEO
 
-الموقع يستخدم النطاق المؤقت `https://example.com` في:
+النطاق الحالي المضبوط في الموقع هو `https://iqra-aly.asm-mdd.workers.dev`، ويظهر في:
 
 - `canonical` و`og:url` و`og:image` و`twitter:image` داخل `index.html`.
 - البيانات المنظّمة `JSON-LD` (نوع `MobileApplication`).
 - `sitemap.xml` وسطر `Sitemap` في `robots.txt`.
 
-لتغييره إلى نطاقك، من داخل مجلد الموقع:
+لتغييره (إلى دومين خاص مثلًا)، من داخل مجلد الموقع:
 
 ```powershell
 .\set-domain.cmd -BaseUrl "https://your-domain.com"
@@ -100,7 +110,7 @@ python -m http.server 8080
 .\set-domain.cmd -BaseUrl "https://username.github.io/iqraaly-website"
 ```
 
-يقرأ السكربت النطاق الحالي من `canonical` ثم يستبدله في الملفات الثلاثة، لذا يمكن تشغيله أكثر من مرة عند تغيير النطاق. ويمكن استدعاء `set-domain.ps1` مباشرة إذا كانت سياسة التنفيذ تسمح.
+يقرأ السكربت النطاق الحالي من `canonical` ثم يستبدله في الملفات الثلاثة، لذا يمكن تشغيله أكثر من مرة عند تغيير النطاق. ويمكن استدعاء `set-domain.ps1` مباشرة إذا كانت سياسة التنفيذ تسمح. بعد التغيير ادفع الملفات إلى GitHub لينشرها Cloudflare.
 
 > `robots.txt` يمنع زحف مجلد `downloads/` لتوفير ميزانية الزحف؛ الصفحة نفسها هي التي تُفهرَس، وملف APK يُنزَّل من زر التحميل.
 

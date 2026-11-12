@@ -3,4 +3,4 @@ Allow: /
 Disallow: /downloads/
 
 # Static single-page site; no private pages.
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://iqra-aly.asm-mdd.workers.dev/sitemap.xml
