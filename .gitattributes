@@ -1,6 +1,10 @@
 # اجعل أسطر الملفات النصية LF دائمًا مهما كان نظام التشغيل
 * text=auto eol=lf
 
+# ملفات ويندوز التنفيذية تحتاج CRLF
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+
 # ملفات ثنائية
 *.apk  binary
 *.png  binary
