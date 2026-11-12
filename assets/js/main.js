@@ -5,7 +5,7 @@
   const config = Object.assign({
     version: '1.0.0',
     minAndroid: '8.0',
-    apkSize: '15.6 MB',
+    apkSize: '15.7 MB',
     downloadEnabled: true,
     apkUrl: 'downloads/iqraaly-1.0.0.apk'
   }, window.IQRAALY_CONFIG || {});

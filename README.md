@@ -22,7 +22,7 @@ python -m http.server 8080
 
 ## التحميل
 
-زر التحميل **مفعّل** حاليًا ويشير إلى `downloads/iqraaly-1.0.0.apk` (الحجم 15.6 MB). عند إصدار نسخة جديدة:
+زر التحميل **مفعّل** حاليًا ويشير إلى `downloads/iqraaly-1.0.0.apk` (الحجم 15.7 MB). عند إصدار نسخة جديدة:
 
 1. ضع ملف APK داخل مجلد `downloads/` بالاسم الجديد.
 
@@ -32,7 +32,7 @@ python -m http.server 8080
    window.IQRAALY_CONFIG = {
      version: '1.0.0',
      minAndroid: '8.0',
-     apkSize: '15.6 MB',
+     apkSize: '15.7 MB',
      downloadEnabled: true,
      apkUrl: 'downloads/iqraaly-1.0.0.apk'
    };
