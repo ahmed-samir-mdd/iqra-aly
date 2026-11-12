@@ -948,7 +948,6 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 /* ---------- التواصل ---------- */
 .contact {
-  padding-top: 0;
   background: var(--bg);
 }
 
