@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>اقرأ عليَّ | المكتبة الإسلامية الرقمية</title>
+  <meta name="description" content="اقرأ عليَّ تطبيق أندرويد عربي للقراءة والاستماع إلى الكتب الإسلامية: مكتبة عامة وشخصية، قارئ مريح، تظليل وملاحظات، وصوت رجالي ونسائي مع مزامنة النص. الإصدار 1.0.0.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://example.com/">
+  <meta name="author" content="اقرأ عليَّ">
+  <meta name="theme-color" content="#FBFDFF">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph — استبدل https://example.com بدومين الموقع النهائي -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="اقرأ عليَّ">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:title" content="اقرأ عليَّ | المكتبة الإسلامية الرقمية">
+  <meta property="og:description" content="مكتبة إسلامية رقمية لتسهيل طلب العلم الشرعي: اقرأ، ظلِّل، دوِّن، واستمع إلى كتب المكتبة الشاملة بالذكاء الاصطناعي. الإصدار 1.0.0.">
+  <meta property="og:image" content="https://example.com/assets/img/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="اقرأ عليَّ — مكتبة إسلامية رقمية للقراءة والاستماع إلى الكتب">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="اقرأ عليَّ | المكتبة الإسلامية الرقمية">
+  <meta name="twitter:description" content="تطبيق أندرويد عربي للقراءة والاستماع إلى الكتب الإسلامية. الإصدار 1.0.0.">
+  <meta name="twitter:image" content="https://example.com/assets/img/og-cover.png">
+  <meta name="twitter:image:alt" content="اقرأ عليَّ — مكتبة إسلامية رقمية للقراءة والاستماع إلى الكتب">
+
+  <script>
+    /* ضبط السمة قبل الرسم لمنع وميض الوضع الفاتح. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('iqraaly-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+      } catch (e) { /* تجاهل */ }
+    })();
+  </script>
+
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-arabic-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-arabic-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "اقرأ عليَّ",
+    "alternateName": "Iqraaly",
+    "description": "تطبيق أندرويد عربي للقراءة والاستماع إلى الكتب الإسلامية: مكتبة عامة وشخصية، قارئ مريح، تظليل وملاحظات، وصوت رجالي ونسائي مع مزامنة النص.",
+    "url": "https://example.com/",
+    "downloadUrl": "https://example.com/downloads/iqraaly-1.0.0.apk",
+    "softwareVersion": "1.0.0",
+    "fileSize": "15.6 MB",
+    "operatingSystem": "Android 8.0+",
+    "applicationCategory": "EducationalApplication",
+    "applicationSubCategory": "Islamic books and audiobooks",
+    "inLanguage": "ar",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "image": "https://example.com/assets/img/og-cover.png",
+    "screenshot": [
+      "https://example.com/assets/img/reader-dark.jpg",
+      "https://example.com/assets/img/audio-dark.jpg",
+      "https://example.com/assets/img/library-list-dark.jpg",
+      "https://example.com/assets/img/details-dark.jpg"
+    ],
+    "featureList": [
+      "قراءة كتب المكتبة الشاملة بالتشكيل والهوامش",
+      "الاستماع بصوت رجالي أو نسائي مع مزامنة الجملة المقروءة",
+      "تظليل بخمسة ألوان وملاحظات وإشارات مرجعية",
+      "وضعان فاتح وداكن بواجهة عربية كاملة"
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "اقرأ عليَّ",
+      "url": "https://example.com/",
+      "sameAs": [
+        "https://www.mortakaz.com/projects/6af4cbbdf67f21ddeceb5f0e",
+        "https://www.linkedin.com/in/ahmed-samir-mdd"
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="اقرأ عليَّ — أعلى الصفحة">
+        <img class="brand-logo" src="assets/img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-copy">
+          <span class="brand-name">اقرأ عليَّ</span>
+          <span class="brand-tag">مكتبتك الإسلامية الرقمية</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="#about">الوصف والمميزات</a>
+        <a href="#preview">لمحة من التطبيق</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="التبديل إلى الوضع الداكن" aria-pressed="false" title="تبديل الوضع الفاتح والداكن">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
+          </svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
+          </svg>
+        </button>
+
+        <a class="header-cta" href="#download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+          </svg>
+          <span>تحميل التطبيق</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== القسم الأساسي ===== -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" style="--d:0ms">تطبيق أندرويد للقراءة والاستماع إلى الكتب الإسلامية</p>
+          <h1 style="--d:70ms">اقرأ عليَّ</h1>
+          <p class="hero-tagline" style="--d:130ms">مكتبة إسلامية رقمية، لتسهيل طلب العلم الشرعي</p>
+          <p class="hero-desc" style="--d:190ms">
+            اقرأ، ظلِّل، دوِّن، واستمع إلى الكتب بالذكاء الاصطناعي. في تجربة صُمِّمت لتناسب رحلتك في طلب العلم.
+          </p>
+
+          <div class="download-box" id="download" style="--d:250ms">
+            <div class="version-row">
+              <span class="version-pill">
+                <span class="status-dot" aria-hidden="true"></span>
+                الإصدار <bdi data-version>1.0.0</bdi>
+              </span>
+              <span class="meta-pill">الحجم <bdi data-apk-size>15.6 MB</bdi></span>
+              <span class="meta-pill">APK · أندرويد</span>
+            </div>
+
+            <button class="btn-download" id="downloadBtn" type="button" aria-describedby="downloadNote">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+              </svg>
+              <span class="btn-label">تحميل التطبيق</span>
+              <span class="btn-badge">APK</span>
+            </button>
+
+            <a class="mortakaz-link" href="https://www.mortakaz.com/projects/6af4cbbdf67f21ddeceb5f0e" target="_blank" rel="noopener noreferrer">
+              <span>تابع المشروع وساهم فيه على مُرتكَز<span class="sr-only"> (يفتح في نافذة جديدة)</span></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+              </svg>
+            </a>
+
+            <p class="download-note" id="downloadNote">ⓘ التطبيق خاضع دائمًا للتطوير والتحسين. قد تجد عطلًا في الصوت في بعض الكتب، أو عدم توفر صوت الأنثى في بعضها، ونحن دائمًا نعمل على رفع الكتب والأصوات بشكل صحيح ويلبِّي توقعات القرَّاء.</p>
+          </div>
+        </div>
+
+        <div class="hero-visual" style="--d:180ms">
+          <div class="phone phone-hero">
+            <img src="assets/img/reader-dark.jpg" alt="لقطة من قارئ اقرأ عليَّ تعرض نصًا عربيًا مع تظليل الجملة المسموعة" width="628" height="1183" fetchpriority="high">
+          </div>
+          <div class="logo-card">
+            <img src="assets/img/logo.svg" alt="شعار تطبيق اقرأ عليَّ" width="180" height="180">
+          </div>
+          <div class="float-chip">
+            <span class="chip-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 10v4"/>
+              </svg>
+            </span>
+            <span class="chip-copy">
+              <strong>صوت يقرأ معك</strong>
+              <small>متزامن مع النص</small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== الوصف والمميزات ===== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">عن التطبيق</p>
+          <h2>مكتبة كاملة، تسهِّل سبيل طلب العلم</h2>
+          <p class="section-lead">
+            «اقرأ عليَّ» تطبيق أندرويد عربي بالكامل للقراءة والاستماع إلى الكتب الإسلامية.
+            يجمع كتب المكتبة الشاملة في تجربة محسنة في القراءة، وإضافة ميزة الاستماع للكتب بالذكاء الاصطناعي.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <p>
+              قارئ التطبيق يمنحك تظليلًا بخمسة ألوان، وملاحظات، وإشارات مرجعية،
+              وفهرسًا تلقائيًا، وثلاث سمات قراءة للون الصفحات. وإلى جانب القراءة، يمكنك الاستماع
+              بصوت رجالي أو نسائي مع مزامنة تُبرز الجملة المقروءة، وحفظ تلقائي
+              لموضع القراءة والاستماع.
+            </p>
+            <p>
+              يستورد التطبيق كتب <strong>المكتبة الشاملة</strong> بنصها الكامل
+              وتشكيلها وهوامشها، ليجمع التراث الذي تحب في مكان واحد، مع مميزات تحسن تجربة القرَّاء.
+            </p>
+          </div>
+
+          <aside class="quote-card" data-reveal style="--d:100ms">
+            <span class="quote-mark" aria-hidden="true">”</span>
+            <blockquote>ما من عمل أفضل من طلب العلم، إذا صحت النية.</blockquote>
+            <span class="quote-source">سفيان الثوري</span>
+          </aside>
+        </div>
+
+        <div class="features-head" data-reveal>
+          <p class="eyebrow">المميزات</p>
+          <h2>ما الذي يجعل «اقرأ عليَّ» مختلفًا؟</h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card" data-reveal>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 6.5C10.5 5.2 8.5 4.5 6 4.5H3v14h3c2.5 0 4.5.7 6 2 1.5-1.3 3.5-2 6-2h3v-14h-3c-2.5 0-4.5.7-6 2Z"/>
+                <path d="M12 6.5v14"/>
+              </svg>
+            </span>
+            <h3>إتاحة الكثير من كتب الشاملة</h3>
+            <p>توفر الكثير من كتب الشاملة، ويتم إضافة المزيد دائمًا. مع توفير ميزات إضافية لا توجد في الشاملة.</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--d:60ms">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"/>
+                <path d="M4 5.5v13"/><path d="M8 7h8M8 11h8M8 15h5"/>
+              </svg>
+            </span>
+            <h3>تجربة قراءة مريحة لكل القرَّاء</h3>
+            <p>ثلاث سمات قراءة، تحكّم بحجم الخط، فهرس تلقائي، وملء الشاشة — مع حفظ موضعك تلقائيًا.</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--d:120ms">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 4 5 5-8.5 8.5H6.5V12.5z"/>
+                <path d="M4 21h16"/>
+              </svg>
+            </span>
+            <h3>ظلِّل، دوِّن، واعزُ</h3>
+            <p>خمسة ألوان للتظليل، ملاحظات مرتبطة بالصفحة، إشارات مرجعية، ونسخ ومشاركة للنص.</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--d:180ms">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v-2a8 8 0 0 1 16 0v2"/>
+                <path d="M4 14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H3v-6z"/>
+                <path d="M20 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v-6z"/>
+              </svg>
+            </span>
+            <h3>استماع بصوتين</h3>
+            <p>صوت رجالي وآخر نسائي، مع سرعة تشغيل ومستوى صوت وانتقال تلقائي إلى الفصل التالي.</p>
+          </article>
+
+          <article class="feature-card" data-reveal>
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 10v4"/>
+              </svg>
+            </span>
+            <h3>الصوت يقرأ معك</h3>
+            <p>تُظلَّل الجملة المسموعة بلون بنفسجي مميّز، ويُحفظ موضع الاستماع لكل كتاب وصوت.</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--d:120ms">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v18"/>
+                <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <h3>فاتح وداكن، بعربية كاملة</h3>
+            <p>واجهة RTL بخط IBM Plex Sans Arabic، ووضعان فاتح وداكن يتبعان اختيارك.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== لمحة من التطبيق ===== -->
+    <section class="section preview" id="preview">
+      <div class="container">
+        <div class="section-head split" data-reveal>
+          <div>
+            <p class="eyebrow">لمحة من التطبيق</p>
+            <h2>هادئ، بسيط، ومصمَّم ليناسبك</h2>
+          </div>
+          <p class="section-lead">
+            لقطات من الواجهة الداكنة: قارئ مريح، مشغّل صوت، مكتبة شخصية،
+            وتفاصيل الكتب.
+          </p>
+        </div>
+
+        <div class="screens" role="region" aria-label="لقطات من التطبيق — يمكن التمرير أفقيًا" tabindex="0">
+          <figure class="screen" data-reveal>
+            <div class="phone">
+              <img src="assets/img/reader-dark.jpg" alt="واجهة القارئ في تطبيق اقرأ عليَّ" width="628" height="1183" loading="lazy">
+            </div>
+            <figcaption>
+              <strong>قارئ بالتشكيل</strong>
+              <span>نص مريح، تظليل، وملاحظات في مساحة هادئة.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="screen" data-reveal style="--d:80ms">
+            <div class="phone">
+              <img src="assets/img/audio-dark.jpg" alt="واجهة الاستماع إلى الكتاب في تطبيق اقرأ عليَّ" width="628" height="1183" loading="lazy">
+            </div>
+            <figcaption>
+              <strong>استماع بصوتين</strong>
+              <span>صوت رجالي أو نسائي مع مزامنة الجملة المقروءة.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="screen" data-reveal style="--d:160ms">
+            <div class="phone">
+              <img src="assets/img/library-list-dark.jpg" alt="واجهة المكتبة الشخصية في تطبيق اقرأ عليَّ" width="628" height="1183" loading="lazy">
+            </div>
+            <figcaption>
+              <strong>مكتبتك الشخصية</strong>
+              <span>صنّف كتبك، وابدأ من حيث توقفت.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="screen" data-reveal style="--d:240ms">
+            <div class="phone">
+              <img src="assets/img/details-dark.jpg" alt="واجهة تفاصيل الكتاب في تطبيق اقرأ عليَّ" width="628" height="1183" loading="lazy">
+            </div>
+            <figcaption>
+              <strong>تفاصيل الكتاب</strong>
+              <span>نبذة، فصول، مصدر، وتقدّم القراءة في مكان واحد.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="preview-note" data-reveal>اللقطات من الواجهة الداكنة، ويدعم التطبيق الوضعين الفاتح والداكن.</p>
+      </div>
+    </section>
+
+    <!-- ===== التواصل ===== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-panel" data-reveal>
+          <div class="contact-intro">
+            <p class="eyebrow">تواصل</p>
+            <h2>لنبنِ المكتبة معًا</h2>
+            <p>
+              سؤال عن التطبيق، ملاحظة على تجربة القراءة، أو رغبة في المساهمة؟
+              اختر الطريقة الأنسب لك.
+            </p>
+            <p class="contact-note">
+              <span class="status-dot" aria-hidden="true"></span>
+              المشروع يُحدَّث باستمرار على مُرتكَز.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a class="contact-card" href="mailto:ahmedsamir202zota@gmail.com">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="m3 7 9 6 9-6"/>
+                </svg>
+              </span>
+              <span class="contact-body">
+                <span class="contact-label">البريد الإلكتروني (Gmail)</span>
+                <span class="contact-value" dir="ltr">ahmedsamir202zota@gmail.com</span>
+                <span class="contact-sub">راسلني مباشرة</span>
+              </span>
+              <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+              </svg>
+            </a>
+
+            <a class="contact-card" href="https://www.mortakaz.com/users/6af227ad4dae0e6b0224735f?tab=projects" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 3 9 5-9 5-9-5z"/>
+                  <path d="m3 12 9 5 9-5"/>
+                  <path d="m3 16 9 5 9-5"/>
+                </svg>
+              </span>
+              <span class="contact-body">
+                <span class="contact-label">مُرتكز (Mortakaz)</span>
+                <span class="contact-value">صفحة المطوِّر والمشاريع</span>
+                <span class="contact-sub">تابع المشروع وساهم فيه</span>
+              </span>
+              <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+              </svg>
+              <span class="sr-only"> (يفتح في نافذة جديدة)</span>
+            </a>
+
+            <a class="contact-card" href="https://www.linkedin.com/in/ahmed-samir-mdd" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="3"/>
+                  <path d="M7.5 10v7M7.5 7.2v.1"/>
+                  <path d="M11.5 17v-4a2.5 2.5 0 0 1 5 0v4"/>
+                </svg>
+              </span>
+              <span class="contact-body">
+                <span class="contact-label">لينكد إن (LinkedIn)</span>
+                <span class="contact-value">أحمد سمير</span>
+                <span class="contact-sub">تواصل مهني</span>
+              </span>
+              <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+              </svg>
+              <span class="sr-only"> (يفتح في نافذة جديدة)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="footer-brand" href="#top" aria-label="اقرأ عليَّ — أعلى الصفحة">
+        <img src="assets/img/logo.svg" alt="" width="36" height="36">
+        <span>
+          <strong>اقرأ عليَّ</strong>
+          <small>مكتبتك الإسلامية الرقمية</small>
+        </span>
+      </a>
+
+      <p class="footer-copy">
+        © <bdi data-year>2026</bdi> اقرأ عليَّ · الإصدار <bdi data-version>1.0.0</bdi>
+      </p>
+
+      <nav class="footer-links" aria-label="روابط التذييل">
+        <a href="#about">المميزات</a>
+        <a href="#contact">تواصل</a>
+        <a href="https://www.mortakaz.com/projects/6af4cbbdf67f21ddeceb5f0e" target="_blank" rel="noopener noreferrer">مُرتكَز</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8v.01"/>
+    </svg>
+    <span id="toastText"></span>
+  </div>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

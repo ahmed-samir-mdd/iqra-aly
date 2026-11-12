@@ -1,0 +1,26 @@
+{
+  "name": "اقرأ عليَّ — مكتبتك الإسلامية الرقمية",
+  "short_name": "اقرأ عليَّ",
+  "description": "تطبيق أندرويد عربي للقراءة والاستماع إلى الكتب الإسلامية.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#FBFDFF",
+  "theme_color": "#AB9172",
+  "icons": [
+    {
+      "src": "assets/img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

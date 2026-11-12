@@ -1,0 +1,11 @@
+# اجعل أسطر الملفات النصية LF دائمًا مهما كان نظام التشغيل
+* text=auto eol=lf
+
+# ملفات ثنائية
+*.apk  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.woff2 binary
+*.ico  binary

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /downloads/
+
+# Static single-page site; no private pages.
+Sitemap: https://example.com/sitemap.xml
