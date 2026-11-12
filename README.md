@@ -49,6 +49,7 @@ python -m http.server 8080
 | ما تريد تعديله | المكان |
 |---|---|
 | النصوص والأقسام والروابط | `index.html` |
+| الأسئلة الشائعة (النصوص والبيانات المنظّمة) | `index.html` — قسم `#faq` والـ`FAQPage` في `<head>` |
 | الألوان والمسافات والتنسيقات | `assets/css/styles.css` |
 | رقم الإصدار وحجم الملف وحالة التحميل | `assets/js/config.js` |
 | الشعار | `assets/img/logo.svg` و`assets/img/logo.png` |
