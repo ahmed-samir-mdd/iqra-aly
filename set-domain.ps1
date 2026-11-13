@@ -1,6 +1,6 @@
 ﻿#requires -Version 5.1
 <#
-  يضبط النطاق النهائي للموقع في index.html و sitemap.xml و robots.txt.
+  يضبط النطاق النهائي للموقع في index.html وصفحات السياسات و sitemap.xml و robots.txt.
   يقرأ النطاق الحالي من وسم canonical ثم يستبدله في كل المواضع،
   فيمكن تشغيله أكثر من مرة عند تغيير النطاق.
 
@@ -41,7 +41,7 @@ if ($old -eq $BaseUrl) {
   exit 0
 }
 
-$files = @('index.html', 'sitemap.xml', 'robots.txt')
+$files = @('index.html', 'privacy.html', 'terms.html', 'sitemap.xml', 'robots.txt')
 $total = 0
 
 foreach ($file in $files) {

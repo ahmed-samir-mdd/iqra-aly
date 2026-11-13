@@ -1130,6 +1130,124 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   color: var(--accent-deep);
 }
 
+/* ---------- صفحات الخصوصية والشروط ---------- */
+.legal-page {
+  padding: clamp(44px, 6vw, 78px) 0 clamp(58px, 8vw, 96px);
+  background: var(--bg);
+}
+
+.legal-wrap {
+  max-width: 780px;
+}
+
+.legal-head {
+  padding-bottom: 22px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.legal-head h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.legal-updated {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+.legal-body h2 {
+  margin: 34px 0 10px;
+  font-size: clamp(18px, 1.9vw, 21px);
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.legal-body h3 {
+  margin: 24px 0 8px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.legal-body p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--muted);
+}
+
+.legal-body ul {
+  margin: 0 0 16px;
+  padding-inline-start: 22px;
+}
+
+.legal-body li {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.legal-body li::marker {
+  color: var(--accent);
+}
+
+.legal-body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.legal-body a {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.legal-body a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.legal-note {
+  margin: 28px 0 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+
+.legal-note p {
+  margin: 0;
+}
+
+.legal-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.legal-foot a {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+
+.legal-foot a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 /* ---------- التنبيه ---------- */
 .toast {
   position: fixed;

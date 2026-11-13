@@ -50,6 +50,8 @@ python -m http.server 8080
 |---|---|
 | النصوص والأقسام والروابط | `index.html` |
 | الأسئلة الشائعة (النصوص والبيانات المنظّمة) | `index.html` — قسم `#faq` والـ`FAQPage` في `<head>` |
+| سياسة الخصوصية | `privacy.html` |
+| شروط الاستخدام | `terms.html` |
 | الألوان والمسافات والتنسيقات | `assets/css/styles.css` |
 | رقم الإصدار وحجم الملف وحالة التحميل | `assets/js/config.js` |
 | الشعار | `assets/img/logo.svg` و`assets/img/logo.png` |
@@ -136,6 +138,8 @@ git push
 ```
 .
 ├── index.html
+├── privacy.html                 # سياسة الخصوصية
+├── terms.html                   # شروط الاستخدام
 ├── site.webmanifest
 ├── robots.txt
 ├── sitemap.xml

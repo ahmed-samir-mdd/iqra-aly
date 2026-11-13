@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>سياسة الخصوصية | اقرأ عليَّ</title>
+  <meta name="description" content="سياسة الخصوصية في تطبيق اقرأ عليَّ: بيانات حساب Google، البيانات المحفوظة على جهازك، مشاركة البيانات، وحذف الحساب.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://iqra-aly.asm-mdd.workers.dev/privacy.html">
+  <meta name="author" content="اقرأ عليَّ">
+  <meta name="theme-color" content="#FBFDFF">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="اقرأ عليَّ">
+  <meta property="og:url" content="https://iqra-aly.asm-mdd.workers.dev/privacy.html">
+  <meta property="og:title" content="سياسة الخصوصية | اقرأ عليَّ">
+  <meta property="og:description" content="كيف يتعامل تطبيق اقرأ عليَّ مع بياناتك: حساب Google، البيانات المحلية، ومشاركة البيانات وحذف الحساب.">
+  <meta property="og:image" content="https://iqra-aly.asm-mdd.workers.dev/assets/img/og-cover.png">
+  <meta property="og:image:alt" content="اقرأ عليَّ — تطبيق لقراءة كتب المكتبة الشاملة والاستماع إليها">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="سياسة الخصوصية | اقرأ عليَّ">
+  <meta name="twitter:description" content="كيف يتعامل تطبيق اقرأ عليَّ مع بياناتك: حساب Google، البيانات المحلية، ومشاركة البيانات وحذف الحساب.">
+  <meta name="twitter:image" content="https://iqra-aly.asm-mdd.workers.dev/assets/img/og-cover.png">
+
+  <script>
+    /* ضبط السمة قبل الرسم لمنع وميض الوضع الفاتح. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('iqraaly-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+      } catch (e) { /* تجاهل */ }
+    })();
+  </script>
+
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-arabic-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-arabic-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "سياسة الخصوصية — اقرأ عليَّ",
+    "url": "https://iqra-aly.asm-mdd.workers.dev/privacy.html",
+    "inLanguage": "ar",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "اقرأ عليَّ",
+      "url": "https://iqra-aly.asm-mdd.workers.dev/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="اقرأ عليَّ — الصفحة الرئيسية">
+        <img class="brand-logo" src="assets/img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-copy">
+          <span class="brand-name">اقرأ عليَّ</span>
+          <span class="brand-tag">مكتبتك الإسلامية الرقمية</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#about">الوصف والمميزات</a>
+        <a href="index.html#faq">الأسئلة</a>
+        <a href="privacy.html" aria-current="page">الخصوصية</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="التبديل إلى الوضع الداكن" aria-pressed="false" title="تبديل الوضع الفاتح والداكن">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
+          </svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
+          </svg>
+        </button>
+
+        <a class="header-cta" href="index.html#download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+          </svg>
+          تحميل التطبيق
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="legal-page">
+      <div class="container">
+        <div class="legal-wrap">
+          <div class="legal-head">
+            <p class="eyebrow">الخصوصية</p>
+            <h1>سياسة الخصوصية</h1>
+            <p class="legal-updated">آخر تحديث: 13 نوفمبر 2026</p>
+          </div>
+
+          <div class="legal-body">
+            <p>
+              توضّح هذه السياسة كيف يتعامل تطبيق <strong>«اقرأ عليَّ»</strong> — تطبيق أندرويد
+              لقراءة كتب المكتبة الشاملة والاستماع إليها — مع بياناتك، وكذلك هذا الموقع
+              التعريفي. باستخدامك التطبيق فإنك تقرأ هذه السياسة وتوافق على الممارسات
+              الموضّحة فيها.
+            </p>
+
+            <p>
+              المطوِّر والمسؤول عن البيانات: <strong>أحمد سمير</strong>، ويمكن التواصل معه
+              عبر <a href="mailto:ahmedsamir202zota@gmail.com">ahmedsamir202zota@gmail.com</a>.
+            </p>
+
+            <h2>1. البيانات التي نجمعها</h2>
+
+            <h3>أ. بيانات حساب Google</h3>
+            <p>
+              يتطلب التطبيق تسجيل الدخول بحساب Google لاستخدامه. عند تسجيل الدخول نتلقّى
+              من Google البيانات الأساسية اللازمة لإنشاء حسابك:
+            </p>
+            <ul>
+              <li>الاسم الظاهر.</li>
+              <li>البريد الإلكتروني.</li>
+              <li>معرّف المستخدم لدى Google.</li>
+              <li>الصورة الرمزية، إن كانت متاحة في حسابك.</li>
+            </ul>
+            <p>
+              لا نطّلع على كلمة مرور حسابك ولا نستطيع الوصول إليها، ولا نطلب صلاحية
+              لقراءة بريدك أو ملفاتك أو جهات اتصالك.
+            </p>
+
+            <h3>ب. بيانات تبقى على جهازك</h3>
+            <p>
+              تبقى بيانات الاستخدام التالية داخل جهازك ولا تُرسل إلى خوادمنا:
+            </p>
+            <ul>
+              <li>الكتب التي نزّلتها وملفات الصوت المحمّلة.</li>
+              <li>موضع القراءة وموضع الاستماع.</li>
+              <li>الملاحظات والتظليل والإشارات المرجعية.</li>
+              <li>إعدادات القارئ والسمة وإعدادات الصوت.</li>
+            </ul>
+            <p>
+              حذف التطبيق أو حذف بياناته من إعدادات أندرويد يؤدي إلى حذف هذه البيانات،
+              ولا يمكننا استعادتها لك.
+            </p>
+
+            <h3>ج. بيانات تقنية</h3>
+            <p>
+              قد يعالج مزوّدو الخدمة المذكورون أدناه بيانات اتصال أساسية، مثل عنوان IP
+              ووقت الطلب وسجل الأخطاء، لتشغيل الخدمة وتأمينها. لا نستخدم هذه البيانات
+              لبناء ملفات تعريف إعلانية.
+            </p>
+
+            <h3>د. ما لا نجمعه</h3>
+            <p>
+              لا نجمع جهات الاتصال ولا الرسائل ولا الموقع الجغرافي ولا الصور ولا ملفات
+              الجهاز، ولا نستخدم إعلانات أو أدوات تتبّع تحليلية داخل التطبيق.
+            </p>
+
+            <h2>2. كيف نستخدم البيانات</h2>
+            <ul>
+              <li>إنشاء حسابك والتحقق من هويتك عبر تسجيل الدخول بGoogle.</li>
+              <li>إدارة حسابك والرد على طلبات الدعم والاستفسارات.</li>
+              <li>حماية الخدمة من إساءة الاستخدام والأعطال.</li>
+              <li>الامتثال للالتزامات القانونية المطبَّقة علينا.</li>
+            </ul>
+            <p>
+              لا نبيع بياناتك ولا نؤجّرها ولا نستخدمها لأغراض إعلانية.
+            </p>
+
+            <h2>3. مشاركة البيانات</h2>
+            <p>
+              نستعين بمزوّدي خدمة لتشغيل التطبيق، ويقتصر تعاملهم مع البيانات على ما
+              تحتاجه الخدمة:
+            </p>
+            <ul>
+              <li>
+                <strong>Google</strong> — لتسجيل الدخول والتحقق من الحساب، وفق
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">سياسة خصوصية Google</a>.
+              </li>
+              <li>
+                <strong>Supabase</strong> — لاستضافة قاعدة البيانات والمصادقة، وتُحفظ فيها
+                بيانات الحساب فقط.
+              </li>
+            </ul>
+            <p>
+              قد نُفصح عن البيانات إذا ألزمنا بذلك قانون أو أمر قضائي، أو لحماية حقوقنا
+              أو سلامة المستخدمين. ولا نشارك بياناتك مع أي طرف آخر لأغراض تجارية.
+            </p>
+
+            <h2>4. الاحتفاظ بالبيانات وحذفها</h2>
+            <p>
+              تُحفظ بيانات حسابك ما دام حسابك قائمًا. ويمكنك حذف حسابك وبياناته من
+              <strong>داخل التطبيق</strong>؛ وعند الحذف تُزال بيانات الحساب المحفوظة لدينا.
+            </p>
+            <p>
+              إذا تعذّر عليك الحذف من التطبيق، راسلنا على البريد أعلاه وسنعالج الطلب.
+              وقد نحتفظ بحد أدنى من السجلات للمدة التي يفرضها القانون أو لحل نزاع قائم.
+            </p>
+
+            <h2>5. أمان البيانات</h2>
+            <p>
+              نستخدم اتصالات مشفّرة (HTTPS) ونقيّد الوصول إلى البيانات على ما تحتاجه
+              الخدمة. لكن لا يمكن ضمان أمان أي نظام بنسبة كاملة، لذا احتفظ بنسخة من
+              ملاحظاتك المهمة إن كنت تحتاجها.
+            </p>
+
+            <h2>6. خصوصية الأطفال</h2>
+            <p>
+              التطبيق غير موجّه للأطفال دون سن 13 عامًا، ولا نجمع بياناتهم عن قصد. إذا
+              اعتقدت أن طفلًا أنشأ حسابًا، راسلنا وسنحذف الحساب.
+            </p>
+
+            <h2>7. حقوقك</h2>
+            <p>
+              لك الحق في الوصول إلى بيانات حسابك وتصحيحها وحذفها، وفي الاعتراض على بعض
+              أوجه المعالجة. يمكنك تنفيذ الحذف من داخل التطبيق، أو مراسلتنا لأي طلب آخر.
+              ولك الحق في تقديم شكوى إلى جهة حماية البيانات المختصة في بلدك.
+            </p>
+
+            <h2>8. مواقع وخدمات أخرى</h2>
+            <p>
+              يحتوي الموقع على روابط إلى مُرتكَز ولينكد إن، ولكل منها سياسة خصوصية
+              مستقلة لا نتحكم فيها.
+            </p>
+
+            <h2>9. تغييرات هذه السياسة</h2>
+            <p>
+              قد نحدّث هذه السياسة عند تغيّر التطبيق أو المتطلبات القانونية، وننشر النسخة
+              الجديدة على هذه الصفحة مع تحديث تاريخ آخر تعديل. استمرارك في استخدام
+              التطبيق بعد التحديث يعني موافقتك على النسخة السارية.
+            </p>
+
+            <h2>10. التواصل</h2>
+            <p>
+              لأي سؤال أو طلب يتعلق بالخصوصية:
+              <a href="mailto:ahmedsamir202zota@gmail.com">ahmedsamir202zota@gmail.com</a>.
+            </p>
+
+            <div class="legal-note">
+              <p>
+                هذه السياسة تخص تطبيق «اقرأ عليَّ» وموقعه التعريفي فقط، ولا تسري على أي
+                تطبيق أو موقع آخر.
+              </p>
+            </div>
+
+            <div class="legal-foot">
+              <a href="terms.html">شروط الاستخدام</a>
+              <a href="index.html">الصفحة الرئيسية</a>
+              <a href="mailto:ahmedsamir202zota@gmail.com">راسلنا</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="اقرأ عليَّ — الصفحة الرئيسية">
+        <img src="assets/img/logo.svg" alt="" width="36" height="36">
+        <span>
+          <strong>اقرأ عليَّ</strong>
+          <small>مكتبتك الإسلامية الرقمية</small>
+        </span>
+      </a>
+
+      <p class="footer-copy">
+        © <bdi data-year>2026</bdi> اقرأ عليَّ · الإصدار <bdi data-version>1.0.0</bdi>
+      </p>
+
+      <nav class="footer-links" aria-label="روابط التذييل">
+        <a href="index.html#about">المميزات</a>
+        <a href="index.html#faq">الأسئلة الشائعة</a>
+        <a href="index.html#contact">تواصل</a>
+        <a href="privacy.html">الخصوصية</a>
+        <a href="terms.html">الشروط</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
