@@ -138,8 +138,8 @@ git push
 ```
 .
 ├── index.html
-├── privacy.html                 # سياسة الخصوصية
-├── terms.html                   # شروط الاستخدام
+├── privacy.html                 # سياسة الخصوصية — تُقدَّم على /privacy
+├── terms.html                   # شروط الاستخدام — تُقدَّم على /terms
 ├── site.webmanifest
 ├── robots.txt
 ├── sitemap.xml
