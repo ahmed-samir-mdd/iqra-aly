@@ -14,8 +14,7 @@
   <meta name="color-scheme" content="light dark">
 
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" sizes="192x192" href="assets/img/icon-192.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
 
   <!-- Open Graph — استبدل https://iqra-aly.asm-mdd.workers.dev بدومين الموقع النهائي -->
   <meta property="og:type" content="website">
@@ -196,14 +195,6 @@
             <circle cx="12" cy="12" r="4"/>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
           </svg>
-        </button>
-
-        <button class="install-btn" type="button" data-install-app aria-label="تثبيت الموقع كتطبيق ويب" title="تثبيت الموقع كتطبيق">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="4" y="3" width="16" height="18" rx="2"/>
-            <path d="M12 7v6"/><path d="m9 10 3 3 3-3"/>
-          </svg>
-          <span>تثبيت الموقع</span>
         </button>
 
         <button class="btn-steps" type="button" data-steps-open aria-haspopup="dialog" aria-controls="stepsModal" aria-label="خطوات التحميل" title="خطوات تحميل التطبيق وتثبيته">
@@ -671,26 +662,6 @@
     </svg>
     <span id="toastText"></span>
   </div>
-
-  <!-- شارة تثبيت الموقع كتطبيق ويب -->
-  <aside class="install-badge" id="installBadge" aria-labelledby="installBadgeTitle" hidden>
-    <span class="install-badge-icon" aria-hidden="true">
-      <img src="assets/img/icon-192.png" alt="" width="44" height="44">
-    </span>
-    <div class="install-badge-copy">
-      <strong id="installBadgeTitle">ثبِّت الموقع كتطبيق ويب</strong>
-      <span>أضفه إلى شاشتك الرئيسية وافتحه بضغطة واحدة، دون متجر تطبيقات.</span>
-    </div>
-    <div class="install-badge-actions">
-      <button class="btn-install-now" type="button" data-install-app>تثبيت</button>
-      <button class="install-badge-close" type="button" data-install-dismiss aria-label="إغلاق شارة التثبيت" title="إغلاق">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18"/>
-        </svg>
-      </button>
-    </div>
-    <p class="install-badge-help" id="installBadgeHelp" hidden></p>
-  </aside>
 
   <!-- نافذة خطوات تثبيت تطبيق أندرويد -->
   <dialog class="steps-modal" id="stepsModal" aria-labelledby="stepsTitle" aria-describedby="stepsIntro">

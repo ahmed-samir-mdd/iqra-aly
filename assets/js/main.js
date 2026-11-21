@@ -168,105 +168,6 @@
     el.textContent = String(year);
   });
 
-  /* ---------- تثبيت الموقع كتطبيق ويب ---------- */
-  const installBadge = document.getElementById('installBadge');
-  const installHelp = document.getElementById('installBadgeHelp');
-  const installDismiss = document.querySelector('[data-install-dismiss]');
-  const installButtons = Array.from(document.querySelectorAll('[data-install-app]'));
-  const standaloneQuery = window.matchMedia ? window.matchMedia('(display-mode: standalone)') : null;
-  let deferredInstall = null;
-  let badgeHideTimer = 0;
-
-  const sessionDismissed = () => {
-    try { return sessionStorage.getItem('iqraaly-install-dismissed') === '1'; } catch (e) { return false; }
-  };
-
-  const rememberDismiss = () => {
-    try { sessionStorage.setItem('iqraaly-install-dismissed', '1'); } catch (e) { /* تجاهل */ }
-  };
-
-  const isInstalled = () => Boolean(
-    (standaloneQuery && standaloneQuery.matches) || window.navigator.standalone === true
-  );
-
-  const hideInstallBadge = (remember) => {
-    if (remember) rememberDismiss();
-    if (!installBadge) return;
-    window.clearTimeout(badgeHideTimer);
-    installBadge.classList.remove('is-visible');
-    badgeHideTimer = window.setTimeout(() => { installBadge.hidden = true; }, 280);
-  };
-
-  const showInstallBadge = (force) => {
-    if (!installBadge || isInstalled() || (!force && sessionDismissed())) return;
-    window.clearTimeout(badgeHideTimer);
-    installBadge.hidden = false;
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => installBadge.classList.add('is-visible'));
-    });
-  };
-
-  const installHelpText = () => {
-    const ua = window.navigator.userAgent || '';
-    const ios = /iPad|iPhone|iPod/.test(ua)
-      || (window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1);
-
-    if (ios) {
-      return 'في سفاري: اضغط زر «مشاركة» في شريط المتصفح، ثم «إضافة إلى الشاشة الرئيسية»، ثم «إضافة».';
-    }
-
-    if (/Android/i.test(ua)) {
-      return 'من قائمة المتصفح (⋮) اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».';
-    }
-
-    return 'من قائمة المتصفح (⋮ أو ⋯) اختر «تثبيت التطبيق» أو «تثبيت هذا الموقع كتطبيق».';
-  };
-
-  installButtons.forEach((button) => {
-    button.addEventListener('click', async () => {
-      if (isInstalled()) {
-        showToast('الموقع مثبت بالفعل على جهازك.');
-        hideInstallBadge(true);
-        return;
-      }
-
-      if (deferredInstall) {
-        deferredInstall.prompt();
-        try {
-          const choice = await deferredInstall.userChoice;
-          if (choice && choice.outcome === 'accepted') hideInstallBadge(false);
-        } catch (e) { /* تجاهل إغلاق نافذة التثبيت */ }
-        deferredInstall = null;
-        return;
-      }
-
-      if (installHelp) {
-        installHelp.textContent = installHelpText();
-        installHelp.hidden = false;
-        showInstallBadge(true);
-      }
-      showToast('لتثبيت الموقع اتبع إرشادات المتصفح الظاهرة في الشارة.');
-    });
-  });
-
-  if (installDismiss) {
-    installDismiss.addEventListener('click', () => hideInstallBadge(true));
-  }
-
-  window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    deferredInstall = event;
-    showInstallBadge();
-  });
-
-  window.addEventListener('appinstalled', () => {
-    deferredInstall = null;
-    hideInstallBadge(true);
-    showToast('تم تثبيت الموقع كتطبيق بنجاح.');
-  });
-
-  showInstallBadge();
-
   /* ---------- نافذة خطوات التحميل ---------- */
   const stepsModal = document.getElementById('stepsModal');
   const stepsOpeners = Array.from(document.querySelectorAll('[data-steps-open]'));
@@ -323,10 +224,16 @@
     });
   }
 
-  /* ---------- عامل الخدمة (تثبيت الموقع) ---------- */
-  if ('serviceWorker' in navigator) {
+  /* ---------- تنظيف عامل الخدمة من النسخة السابقة ---------- */
+  if ('serviceWorker' in navigator && navigator.serviceWorker.getRegistrations) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => { /* التثبيت غير متاح */ });
+      navigator.serviceWorker.getRegistrations()
+        .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+        .then(() => {
+          if (window.caches) return window.caches.delete('iqraaly-shell-v1');
+          return null;
+        })
+        .catch(() => { /* تجاهل */ });
     });
   }
 })();
