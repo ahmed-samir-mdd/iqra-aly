@@ -54,6 +54,9 @@ python -m http.server 8080
 | شروط الاستخدام | `terms.html` |
 | الألوان والمسافات والتنسيقات | `assets/css/styles.css` |
 | رقم الإصدار وحجم الملف وحالة التحميل | `assets/js/config.js` |
+| خطوات تثبيت APK على أندرويد | `index.html` — نافذة `#stepsModal` |
+| شارة تثبيت الموقع كتطبيق ويب | `index.html` — `#installBadge` و`assets/js/main.js` |
+| بيانات تطبيق الويب (PWA) | `site.webmanifest` و`sw.js` |
 | الشعار | `assets/img/logo.svg` و`assets/img/logo.png` |
 | لقطات التطبيق | `assets/img/*.jpg` |
 | الخط | `assets/fonts/` |
@@ -141,6 +144,7 @@ git push
 ├── privacy.html                 # سياسة الخصوصية — تُقدَّم على /privacy
 ├── terms.html                   # شروط الاستخدام — تُقدَّم على /terms
 ├── site.webmanifest
+├── sw.js                        # عامل الخدمة (تثبيت الموقع كتطبيق ويب)
 ├── robots.txt
 ├── sitemap.xml
 ├── set-domain.ps1              # ضبط النطاق النهائي
@@ -154,6 +158,9 @@ git push
     ├── img/
     │   ├── logo.svg
     │   ├── logo.png
+    │   ├── icon-192.png
+    │   ├── icon-512.png
+    │   ├── icon-maskable-512.png
     │   ├── og-cover.png
     │   ├── reader-dark.jpg
     │   ├── audio-dark.jpg
@@ -172,3 +179,7 @@ git push
 - اللقطات من واجهة التطبيق الداكنة، والشعار مأخوذ من مجلد التصميم الرسمي.
 - خط IBM Plex Sans Arabic مستضاف محليًا بموجب رخصة SIL Open Font License؛ نص الرخصة في `assets/fonts/OFL.txt`.
 - جميع النصوص والواجهة عربية باتجاه RTL، مع دعم لوحة المفاتيح وقارئات الشاشة وتفضيل تقليل الحركة.
+- الموقع قابل للتثبيت كتطبيق ويب (PWA) عبر `site.webmanifest` و`sw.js` وأيقونات 192/512 ومقنّعة. تظهر شارة «ثبِّت الموقع كتطبيق ويب» عند الدخول، ويوجد زر تثبيت في الهيدر، ويُستدعى مربع تثبيت المتصفح (`beforeinstallprompt`) عندما يكون متاحًا، وإلا تظهر إرشادات المتصفح.
+- شارة التثبيت لا تظهر إذا كان الموقع مفتوحًا كتطبيق مستقل، وتُخفى بعد إغلاقها حتى نهاية جلسة التصفح (`sessionStorage`).
+- زر «خطوات التحميل» يفتح نافذة منبثقة (`<dialog>`) بخطوات تثبيت ملف APK على أندرويد، وتُغلق بـ`Esc` أو النقر خارجها، مع إعادة التركيز إلى الزر.
+- عامل الخدمة يجعل الموقع يعمل دون اتصال بعد الزيارة الأولى، ولا يخزّن ملفات `downloads/` ولا يعترض تنزيل APK.

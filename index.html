@@ -14,7 +14,7 @@
   <meta name="color-scheme" content="light dark">
 
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/img/logo.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/img/icon-192.png">
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Open Graph — استبدل https://iqra-aly.asm-mdd.workers.dev بدومين الموقع النهائي -->
@@ -160,7 +160,7 @@
         "name": "كيف أثبّت التطبيق على هاتفي؟",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "نزّل ملف APK من أعلى الصفحة، ثم افتحه واسمح بتثبيت التطبيقات من هذا المصدر إن طلب منك النظام ذلك."
+          "text": "نزّل ملف APK من أعلى الصفحة، ثم افتحه واضغط «تثبيت». وإذا أظهر Play Protect تحذيرًا، اضغط «مزيد من التفاصيل» ثم «تثبيت على أي حال». واسمح بتثبيت التطبيقات من هذا المصدر إن طلب منك النظام ذلك. تجد الخطوات مفصّلة في زر «خطوات التحميل» أعلى الصفحة."
         }
       }
     ]
@@ -196,6 +196,22 @@
             <circle cx="12" cy="12" r="4"/>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
           </svg>
+        </button>
+
+        <button class="install-btn" type="button" data-install-app aria-label="تثبيت الموقع كتطبيق ويب" title="تثبيت الموقع كتطبيق">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="2"/>
+            <path d="M12 7v6"/><path d="m9 10 3 3 3-3"/>
+          </svg>
+          <span>تثبيت الموقع</span>
+        </button>
+
+        <button class="btn-steps" type="button" data-steps-open aria-haspopup="dialog" aria-controls="stepsModal" aria-label="خطوات التحميل" title="خطوات تحميل التطبيق وتثبيته">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 6h11M9 12h11M9 18h11"/>
+            <path d="M4 6h.01M4 12h.01M4 18h.01"/>
+          </svg>
+          <span>خطوات التحميل</span>
         </button>
 
         <a class="header-cta" href="#download">
@@ -535,8 +551,10 @@
             </summary>
             <div class="faq-answer">
               <p>
-                نزّل ملف APK من أعلى الصفحة، ثم افتحه واسمح بتثبيت التطبيقات من هذا
-                المصدر إن طلب منك النظام ذلك.
+                نزّل ملف APK من أعلى الصفحة، ثم افتحه واضغط «تثبيت». وإذا أظهر
+                Play Protect تحذيرًا، اضغط «مزيد من التفاصيل» ثم «تثبيت على أي حال».
+                واسمح بتثبيت التطبيقات من هذا المصدر إن طلب منك النظام ذلك.
+                تجد الخطوات مفصّلة في زر «خطوات التحميل» أعلى الصفحة.
               </p>
             </div>
           </details>
@@ -653,6 +671,102 @@
     </svg>
     <span id="toastText"></span>
   </div>
+
+  <!-- شارة تثبيت الموقع كتطبيق ويب -->
+  <aside class="install-badge" id="installBadge" aria-labelledby="installBadgeTitle" hidden>
+    <span class="install-badge-icon" aria-hidden="true">
+      <img src="assets/img/icon-192.png" alt="" width="44" height="44">
+    </span>
+    <div class="install-badge-copy">
+      <strong id="installBadgeTitle">ثبِّت الموقع كتطبيق ويب</strong>
+      <span>أضفه إلى شاشتك الرئيسية وافتحه بضغطة واحدة، دون متجر تطبيقات.</span>
+    </div>
+    <div class="install-badge-actions">
+      <button class="btn-install-now" type="button" data-install-app>تثبيت</button>
+      <button class="install-badge-close" type="button" data-install-dismiss aria-label="إغلاق شارة التثبيت" title="إغلاق">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18"/>
+        </svg>
+      </button>
+    </div>
+    <p class="install-badge-help" id="installBadgeHelp" hidden></p>
+  </aside>
+
+  <!-- نافذة خطوات تثبيت تطبيق أندرويد -->
+  <dialog class="steps-modal" id="stepsModal" aria-labelledby="stepsTitle" aria-describedby="stepsIntro">
+    <div class="steps-modal-inner">
+      <header class="steps-head">
+        <h2 id="stepsTitle">خطوات تثبيت التطبيق على أندرويد</h2>
+        <button class="steps-close" type="button" data-steps-close aria-label="إغلاق نافذة خطوات التحميل" title="إغلاق">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18"/>
+          </svg>
+        </button>
+      </header>
+
+      <p class="steps-intro" id="stepsIntro">
+        نزِّل ملف التطبيق من الصفحة، ثم اتبع هذه الخطوات بالترتيب. قد تختلف أسماء الأزرار قليلًا حسب إصدار أندرويد والهاتف.
+      </p>
+
+      <ol class="steps-list">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <div class="step-body">
+            <h3>افتح ملف التثبيت</h3>
+            <p>
+              من تطبيق «الملفات» على هاتفك، افتح مجلد <bdi>Installation files</bdi> (أو «التنزيلات»)،
+              ثم اضغط على ملف <bdi dir="ltr">iqraaly-<span data-version>1.0.1</span>.apk</bdi>.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <div class="step-body">
+            <h3>اضغط «تثبيت»</h3>
+            <p>ستظهر رسالة: «هل تريد تثبيت هذا التطبيق؟» اضغط <span class="ui-label">تثبيت</span> للمتابعة.</p>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <div class="step-body">
+            <h3>تجاوز تحذير Play Protect</h3>
+            <p>
+              قد يُظهر Google Play Protect تنبيهًا: «تم حظر تطبيق ضار». اضغط
+              <span class="ui-label">مزيد من التفاصيل</span> لعرض الخيارات.
+            </p>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <div class="step-body">
+            <h3>اختر «تثبيت على أي حال»</h3>
+            <p>من شاشة التحذير اضغط <span class="ui-label">تثبيت على أي حال</span> لإكمال تثبيت التطبيق.</p>
+          </div>
+        </li>
+
+        <li class="step">
+          <span class="step-num" aria-hidden="true">5</span>
+          <div class="step-body">
+            <h3>افتح التطبيق</h3>
+            <p>بعد ظهور رسالة «تم تثبيت التطبيق» اضغط <span class="ui-label">فتح</span>، ثم سجِّل الدخول بحساب Google.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="steps-note">
+        ⓘ تحذير Play Protect طبيعي لأن التطبيق يُثبَّت خارج متجر Google Play. وإن طلب منك النظام السماح
+        بتثبيت التطبيقات من هذا المصدر، فعِّل الخيار من الإعدادات ثم أعد فتح ملف APK.
+      </p>
+
+      <div class="steps-foot">
+        <button class="btn-steps-download" type="button" data-steps-download>تحميل ملف APK</button>
+        <button class="btn-steps-later" type="button" data-steps-close>إغلاق</button>
+      </div>
+    </div>
+  </dialog>
 
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/main.js" defer></script>

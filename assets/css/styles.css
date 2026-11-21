@@ -329,6 +329,39 @@ h1, h2, h3, p, figure, blockquote {
 html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
+.install-btn,
+.btn-steps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.install-btn svg,
+.btn-steps svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.install-btn:hover,
+.btn-steps:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;
@@ -1283,6 +1316,297 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   transform: translate(-50%, 0);
 }
 
+/* ---------- شارة تثبيت الموقع ---------- */
+.install-badge {
+  position: fixed;
+  z-index: 95;
+  bottom: 20px;
+  inset-inline-start: 20px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  width: min(400px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .25s ease, transform .3s var(--ease);
+}
+
+.install-badge[hidden] { display: none; }
+
+.install-badge.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.install-badge-icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: var(--accent-soft);
+}
+
+.install-badge-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.install-badge-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.install-badge-copy strong {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.install-badge-copy span {
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.install-badge-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-install-now {
+  padding: 7px 13px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .2s ease;
+}
+
+.btn-install-now:hover { filter: brightness(.96); }
+
+.install-badge-close,
+.steps-close {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.install-badge-close svg,
+.steps-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.install-badge-close:hover,
+.steps-close:hover {
+  border-color: var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.install-badge-help {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.install-badge-help[hidden] { display: none; }
+
+/* ---------- نافذة خطوات التثبيت ---------- */
+.steps-modal {
+  width: min(640px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--text);
+}
+
+.steps-modal::backdrop {
+  background: rgba(8, 8, 8, .58);
+}
+
+.steps-modal-inner {
+  max-height: calc(100vh - 32px);
+  padding: clamp(18px, 3.5vw, 28px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  animation: stepsIn .25s var(--ease);
+}
+
+@keyframes stepsIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+.steps-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.steps-head h2 {
+  margin: 0;
+  font-size: clamp(19px, 2.4vw, 23px);
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.steps-close {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.steps-intro {
+  margin: 10px 0 18px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.steps-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.step-num {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.step-body h3 {
+  margin: 0 0 3px;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.step-body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.ui-label {
+  display: inline-block;
+  padding: 0 7px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.9;
+  white-space: nowrap;
+}
+
+.steps-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface-2);
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.steps-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.btn-steps-download,
+.btn-steps-later {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.btn-steps-download {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-steps-download:hover { filter: brightness(.96); }
+
+.btn-steps-later {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.btn-steps-later:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+}
+
+body.is-modal-open { overflow: hidden; }
+
 /* ---------- الظهور عند التمرير ---------- */
 .js [data-reveal] {
   opacity: 0;
@@ -1325,6 +1649,19 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 @media (max-width: 1080px) {
   .features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-nav {
+    gap: 18px;
+  }
+
+  .install-btn {
+    width: 40px;
+    padding: 0;
+  }
+
+  .install-btn span {
+    display: none;
   }
 }
 
@@ -1402,6 +1739,14 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   .brand-logo {
     width: 36px;
     height: 36px;
+  }
+
+  .header-inner {
+    gap: 14px;
+  }
+
+  .install-btn {
+    display: none;
   }
 
   .header-cta {
@@ -1490,7 +1835,42 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   }
 }
 
+@media (max-width: 520px) {
+  .install-badge {
+    inset-inline: 12px;
+    bottom: 12px;
+    width: auto;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 11px 12px;
+  }
+
+  .install-badge-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+
+  .steps-modal {
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+  }
+
+  .steps-modal-inner {
+    max-height: calc(100vh - 20px);
+    padding: 16px;
+    border-radius: 14px;
+  }
+}
+
 @media (max-width: 430px) {
+  .brand-tag {
+    display: none;
+  }
+
+  .btn-steps {
+    padding: 0 10px;
+  }
+
   .version-row {
     gap: 6px;
   }
@@ -1530,6 +1910,17 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
   .toast {
     font-size: 12.5px;
+  }
+}
+
+@media (max-width: 370px) {
+  .btn-steps {
+    width: 40px;
+    padding: 0;
+  }
+
+  .btn-steps span {
+    display: none;
   }
 }
 
