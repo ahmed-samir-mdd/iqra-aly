@@ -22,7 +22,7 @@ python -m http.server 8080
 
 ## التحميل
 
-زر التحميل **مفعّل** حاليًا ويشير إلى `downloads/iqraaly-1.0.0.apk` (الحجم 15.7 MB). عند إصدار نسخة جديدة:
+زر التحميل **مفعّل** حاليًا ويشير إلى `downloads/iqraaly-1.0.1.apk` (الحجم 15.8 MB). عند إصدار نسخة جديدة:
 
 1. ضع ملف APK داخل مجلد `downloads/` بالاسم الجديد.
 
@@ -30,11 +30,11 @@ python -m http.server 8080
 
    ```js
    window.IQRAALY_CONFIG = {
-     version: '1.0.0',
+     version: '1.0.1',
      minAndroid: '8.0',
-     apkSize: '15.7 MB',
+     apkSize: '15.8 MB',
      downloadEnabled: true,
-     apkUrl: 'downloads/iqraaly-1.0.0.apk'
+     apkUrl: 'downloads/iqraaly-1.0.1.apk'
    };
    ```
 
@@ -146,7 +146,7 @@ git push
 ├── set-domain.ps1              # ضبط النطاق النهائي
 ├── set-domain.cmd              # مشغّل السكربت على ويندوز
 ├── downloads/
-│   └── iqraaly-1.0.0.apk       # ملف التطبيق المنشور
+│   └── iqraaly-1.0.1.apk       # ملف التطبيق المنشور
 └── assets/
     ├── css/styles.css
     ├── js/config.js

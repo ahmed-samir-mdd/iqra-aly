@@ -6,13 +6,13 @@
     3) اترك downloadEnabled = true
    ============================================================ */
 window.IQRAALY_CONFIG = {
-  version: '1.0.0',
+  version: '1.0.1',
   minAndroid: '8.0',
-  apkSize: '15.7 MB',
+  apkSize: '15.8 MB',
 
   /* زر التحميل مفعّل ويشير إلى الملف داخل مجلد downloads/. */
   downloadEnabled: true,
 
   /* مسار ملف APK داخل مجلد downloads/. */
-  apkUrl: 'downloads/iqraaly-1.0.0.apk'
+  apkUrl: 'downloads/iqraaly-1.0.1.apk'
 };
